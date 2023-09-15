@@ -1,0 +1,31 @@
+{% block table %}
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            {% block tableHeading %}
+                <th>Company name</th>
+                <th>Address</th>
+                <th>&nbsp;</th>
+            {% endblock %}
+        </tr>
+        </thead>
+        <tbody>
+        {% if page.dealers %}
+            {% for dealer in page.dealers %}
+                <tr data-latitude="{{ dealer.latitude }}" data-longitude="{{ dealer.longitude }}">
+                    {% block tableRow %}
+                        <td>{{ dealer.name }}</td>
+                        <td>{{ dealer.description }}</td>
+                        <td>
+                            <button data-dealer-id="{{ dealer.id }}">
+                                Show on map
+                            </button>
+                        </td>
+                    {% endblock %}
+                </tr>
+            {% endfor %}
+        {% else %}
+        {% endif %}
+        </tbody>
+    </table>
+{% endblock %}

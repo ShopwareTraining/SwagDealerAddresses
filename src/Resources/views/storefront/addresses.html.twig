@@ -1,0 +1,9 @@
+{% sw_extends '@Storefront/storefront/base.html.twig' %}
+
+{% block base_content %}
+<div class="dealers">
+    <h1>Dealer addresses</h1>
+    {% sw_include '@SwagDealerAddress/storefront/addresses/map.html.twig' %}
+    {% sw_include '@SwagDealerAddress/storefront/addresses/table.html.twig' %}
+</div>
+{% endblock %}
